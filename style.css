@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Varela+Round&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #0f0c29;
+    background-size: 50px 50px;
+    overflow: hidden;
+    --speed: 200s;
+    animation: animateBackground var(--speed) linear infinite;
+    background-image: radial-gradient(circle, #525364 1px, rgba(0, 0, 0, 0) 1px);
+}
+
+@keyframes animateBackground {
+    0% {
+        background-position: 0 0;
+    }
+
+
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+#forecast {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+}
+
+.handle {
+    position: relative;
+    top: -30px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.wrapper:hover .handle::after,
+.wrapper:hover .handle::before {
+    transform: translateZ(0);
+}
+
+.handle::after,
+.handle::before {
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 10px;
+    background-color: #eae8fa;
+    border-radius: 9999px;
+    transition: transform 0.5s ease;
+}
+
+.handle::after {
+    right: -23px;
+    transform: rotateZ(-45deg);
+}
+
+.handle::before {
+    right: -50px;
+    transform: rotateZ(45deg);
+}
+
+
+
+#forecast>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #b0a7ff;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 700;
+    max-width: 600px;
+    gap: 4rem;
+}
+
+#forecast>div>div {
+    display: flex;
+    gap: 2rem;
+    text-transform: capitalize;
+    align-items: center;
+}
+
+.forecastIcon {
+    width: 65px;
+    height: 65px;
+}
+
+.slash {
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+    color: gray;
+}
+
+
+.wrapper {
+    position: absolute;
+    bottom: 0;
+    padding-top: 10px;
+    transform: translateY(13rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transition: transform 0.3s ease;
+
+}
+
+#forecast::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #24243e, #1d1a3c, #0f0c29, #0f0c29, #302b63, #24243e);
+    background-size: 800%;
+    animation: animate 45s linear infinite;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: -1;
+}
+
+.wrapper:hover::before {
+    animation-play-state: paused;
+
+}
+
+.wrapper:hover {
+    transform: translateY(0);
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 300% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+ul {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin-top: auto;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    gap: 0.5rem;
+}
+
+
+
+li>img {
+    width: 50px;
+    height: 50px;
+}
+
+header {
+    margin-top: 5%;
+    text-align: center;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+#todayDegree {
+    font-size: 6.5rem;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bolder;
+}
+
+#city {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    font-weight: bolder;
+}
+
+#weatherCondition {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+.weatherExtras {
+    display: block;
+    text-align: center;
+}
